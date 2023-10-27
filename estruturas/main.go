@@ -4,20 +4,19 @@ import "fmt"
 
 func main() {
 
-	// Criação de uma struct
-	type Person struct {
-		age  int
-		name string
+	animals := struct {
+		Mammals struct {
+			Race  string
+			Color string
+			Size  string
+			/// ...
+		}
+		Amphibians struct{}
+		/// ...
+	}{
+		/// ...
 	}
 
-	// Criação de uma instância da struct
-	var person Person
-
-	// Atribuição de valores
-	person.age = 30
-	person.name = "John Doce"
-
-	fmt.Printf("Name: %s with age: %d", person.name, person.age)
-	// saída -> Name: John Doce with age: 30
+	fmt.Println(animals)
 
 }

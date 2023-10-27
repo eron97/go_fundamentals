@@ -78,3 +78,54 @@ diferentes em um único tipo.
 
 	fmt.Printf("Name: %s with age: %d", person.name, person.age)
 	// saída -> Name: John Doce with age: 30
+
+
+Podemos ter structs que são implementas dentro de outras:
+
+	type car struct {
+		Model string
+		Motor motor
+	}
+
+	type motor struct {
+		NameMotor string
+		Power     string
+	}
+
+	func model_car(c car) {
+		fmt.Printf("My car is a model: %s and Motor with power %s\n", c.Model, c.Motor.Power)
+	}
+
+	func main() {
+
+		my_car := car{
+			Model: "Ferrari Ferrari",
+			Motor: motor{
+				NameMotor: "V220",
+				Power:     "500",
+			},
+		}
+
+		model_car(my_car)
+		// saída -> My car is a model: Ferrari Ferrari and Motor with power 500
+
+	}
+
+
+Podemos ter strucs anônimas e aninhadas onde são declaras e incializadas dentro do escopo da func main(){}
+
+	animals := struct {
+		Mammals struct {
+			Race  string
+			Color string
+			Size  string
+			/// ...
+		}
+		Amphibians struct{}
+		/// ...
+	}{
+		/// ...
+	}
+
+	fmt.Println(animals)
+

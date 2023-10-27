@@ -1,0 +1,25 @@
+Interfaces
+Permite definir um conjunto de métodos que uma estrutura
+deve implementar
+
+    type Abser interface {
+        Abs() float64
+    }
+
+    type Point struct {
+        X, Y float64
+    }
+
+    func (p Point) Abs() float64 {
+        return math.Sqrt(p.X*p.X + p.Y*p.Y)
+    }
+
+    // "p" trata-se de um receptor de struct
+
+    var p = Point{X: 3, Y: 4}
+
+    func main() {
+        a := Abser(p)
+        fmt.Println(a.Abs())
+
+    }

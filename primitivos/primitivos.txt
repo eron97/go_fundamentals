@@ -70,3 +70,7 @@ Pode-se usar o pacote reflect (em tempo de execução)
 		var x int = 40
 		fmt.Println(reflect.TypeOf(x))
 
+Ou pode-se usar um verbo formatador
+	mylastname := "Jhonson"
+	fmt.Printf("mylastname is a %T", mylastname)
+
