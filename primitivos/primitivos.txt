@@ -1,0 +1,72 @@
+Inteiros assinados podem representar números negativos
+Inteiros não assinados só podem representar números positivos
+
+	int8 -128 a 127
+	uint8 0 a 255
+	int16 -32768 a 32767
+	uint16 0 a 65535
+	int32 -2147483648 a 2147483647
+	uint32 0 a 4294967295
+	int64 -9223372036854775808 a 9223372036854775807
+	uint64 0 a 18446744073709551615
+
+Pontos flutuantes representam inteiros com parte fracionária
+
+    float32 -3.4028234663852886e+38 a 3.4028234663852886e+38
+	(precisão de 7 casas decimais)
+
+	float64  -1.7976931348623157e+308 a 1.7976931348623157e+308
+	(precisão de 15 casas decimais)
+
+Booleanos representam valores falsos e verdadeiros
+
+    0 false
+	1 true
+
+Strings são sequências de caracteres que repreentam textos e urls
+(codificadas em UTF-8 -> qualquer caractere Unicode)
+
+Runes são inteiros que representam um código de ponto Unicode
+
+	var name string = "Rune"
+	runa := rune(name[0])
+	fmt.Println(runa)
+	// saída -> 82
+
+
+
+
+
+Sobre conversões implícitas (coerção)
+ocorrem quando o compliador automaticamente já converte um tipo para outro.
+
+Conversões explícitas (cast)
+Oocorrem quando a conversão não é segura e compromete a perda dos dados.
+
+		var x int64 = 123456
+		var y int32 = int32(x)
+
+A conversão feita acima é conhecida como conversão de "tipo".
+Pode-se também usar funções de conversão como a strconv.Atoi
+
+		var x string = "10"
+		var y int
+		y, err := strconv.Atoi(x)
+		if err != nil {
+			fmt.Println("Erro na conversão:", err)
+		} else {
+			fmt.Println(y)
+		}
+
+Essa função retorna (int, err) por isso deve ter o tratamento para erro
+
+
+
+
+
+Para identificação do tipo de um dado
+
+Pode-se usar o pacote reflect (em tempo de execução)
+		var x int = 40
+		fmt.Println(reflect.TypeOf(x))
+
