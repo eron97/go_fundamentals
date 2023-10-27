@@ -1,0 +1,47 @@
+Ponteiros são variáveis que armazenam endereço de outra variável.
+
+Devolvendo o endereço de memória da variável i 
+	var i int = 10
+	fmt.Println(&i)
+	// saída -> 0xc000096068
+
+Devolvendo o valor da variável i 
+	var i int = 10
+	var p *int = &i
+	fmt.Println(*p)
+	// -> saída 10
+
+O endereço de memória de ambas variáveis são diferentes.
+	var i int = 10
+	var ponteiro *int = &i
+	fmt.Println(&i)        // saída -> 0xc00000a0b8
+	fmt.Println(&ponteiro) // saída -> 0xc000054020
+
+
+
+
+Passagem por valor e passagem por referência
+Por padrão em Go as funções recebem uma cópia dos valores das variáveis!
+
+    func main() {
+        var x = 1
+        fmt.Println("Antes da função: ", x) // saída -> 1
+        modifyValue(&x)
+        fmt.Println("Com a função modifyValue: ", x) // saída -> 10
+        multiplyValue(&x)
+        fmt.Println("Com a função multiplyValue", x) // saída -> 100
+    }
+
+    func modifyValue(numPtr *int) {
+        *numPtr = 10
+    }
+
+    func multiplyValue(numPtr *int) {
+        *numPtr = *numPtr * *numPtr
+    }
+
+Na passagem por valor recebe-se uma cópia do valor.
+Na passagem por referência recebe-se o endereço da variável.
+
+Utlizamos os ponteiros para passar variávels por referências para funções
+bem como acessar endereço de memória de variável e manipular memória dinamicamente
