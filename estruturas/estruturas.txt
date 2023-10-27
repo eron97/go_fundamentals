@@ -1,0 +1,80 @@
+Arrays
+Possuem elementos do mesmo tipo com tamanho pré-definido
+
+	var arr [10]int
+	fmt.Println(arr) // saída -> [0 0 0 0 0 0 0 0 0 0]
+
+	arr2 := [5]int{1, 2, 3, 4, 5}
+	fmt.Println(arr2) // saída -> [1 2 3 4 5]
+
+
+
+
+
+Slices
+Sequências de elementos do mesmo tipo com tamanho dinâmico.
+São criados a partir de arrays ou outros slices.
+
+	array := [5]int{1, 2, 3, 4, 5}
+	slice := array[0:3]
+	fmt.Println(slice) // saída -> [1 2 3]
+
+	slice = append(slice, 4, 5)
+	fmt.Println(slice) // saída -> [1 2 3 4 5]
+
+Criando um slice a partir de dois arrays subjacentes
+
+	array1 := [3]int{10, 20, 30}
+	array2 := [2]int{40, 50}
+
+	var slice []int
+	slice = append(slice, array1[:]...)
+	slice = append(slice, array2[:]...)
+	fmt.Println(slice) // saída -> [10, 20, 30, 40, 50]
+
+
+
+
+
+Maps
+Estruturas que associam chaves e valores
+
+	m1 := map[string]int{
+		"a": 1,
+		"b": 2,
+		"c": 3,
+	}
+
+	m1["d"] = 4
+
+	fmt.Println(m1) // saída -> map[a:1 b:2 c:3 d:4]
+
+	m2 := map[rune]string{}
+	m2['a'] = "A"
+	m2['b'] = "B"
+
+	fmt.Println(m2) // saída -> map[97:A 98:B]
+
+
+
+
+
+Strucs
+Dados definidos pelo usuário que permitem agrupar/combinar itens de tipos
+diferentes em um único tipo.
+
+	// Criação de uma struct
+	type Person struct {
+		age  int
+		name string
+	}
+
+	// Criação de uma instância da struct
+	var person Person
+
+	// Atribuição de valores
+	person.age = 30
+	person.name = "John Doce"
+
+	fmt.Printf("Name: %s with age: %d", person.name, person.age)
+	// saída -> Name: John Doce with age: 30
