@@ -14,7 +14,7 @@ deve implementar
         return math.Sqrt(p.X*p.X + p.Y*p.Y)
     }
 
-    // "p" trata-se de um receptor de struct
+    // "p" trata-se de um receptor de struct que passa a obter acesso aos parâmetros da struc ou da instância da struct
 
     var p = Point{X: 3, Y: 4}
 

@@ -1,0 +1,27 @@
+Considere que temos uma interface com apenas uma única proposta de método a ser atendido por qualquer tipo de objeto (normalmente struct)
+
+
+- Função com receptor (receiver function):
+um método chamado name_function que tem um receptor (receiver) do tipo animal.
+Esse método pode ser chamado em uma instância de animal. Por exemplo:
+
+    func (a animal) name_function() {}
+
+    myAnimal := animal{Name: "Fido", Age: 3}
+    myAnimal.name_function()
+
+- Função sem receptor (receiver function):
+Nesse caso, você está definindo uma função comum que aceita uma instância de animal como argumento.
+Essa função não é um método associado a uma instância de animal e, portanto, não pode ser chamada 
+usando a notação de ponto. Em vez disso, você chamaria essa função da seguinte maneira:
+
+    func name_funcion(a animal) {}
+
+    myAnimal := animal{Name: "Fido", Age: 3}
+    name_function(myAnimal)
+
+
+
+
+
+
